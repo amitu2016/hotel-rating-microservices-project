@@ -1,0 +1,5 @@
+package com.amitu.userservice.service;
+
+public class UserServiceImpl implements UserService{
+
+}

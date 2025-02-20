@@ -1,0 +1,33 @@
+package com.amitu.ratingservice.service;
+
+import java.util.List;
+
+import com.amitu.ratingservice.entity.Rating;
+
+public class RatingServiceImpl implements RatingService {
+
+	@Override
+	public Rating create(Rating rating) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Rating> getRatings() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Rating> getRatingByUserId(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Rating> getRatingByHotelId(String hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

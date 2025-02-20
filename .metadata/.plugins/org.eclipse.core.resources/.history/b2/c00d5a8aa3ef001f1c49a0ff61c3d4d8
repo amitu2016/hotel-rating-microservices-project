@@ -1,0 +1,9 @@
+package com.amitu.ratingservice.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.amitu.ratingservice.entity.Rating;
+
+public interface RatingRepository extends MongoRepository<Rating, String> {
+
+}

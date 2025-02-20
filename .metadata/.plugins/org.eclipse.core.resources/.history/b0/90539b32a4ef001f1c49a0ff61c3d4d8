@@ -1,0 +1,5 @@
+package com.amitu.ratingservice.controller;
+
+public class RatingController {
+
+}

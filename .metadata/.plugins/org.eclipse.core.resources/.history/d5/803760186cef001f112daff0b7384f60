@@ -1,0 +1,5 @@
+package com.amitu.userservice.repository;
+
+public interface UserRepository {
+
+}

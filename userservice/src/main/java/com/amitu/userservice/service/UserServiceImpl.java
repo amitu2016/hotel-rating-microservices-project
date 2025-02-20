@@ -1,0 +1,54 @@
+package com.amitu.userservice.service;
+
+import java.util.List;
+import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.ResourceAccessException;
+
+import com.amitu.userservice.entity.User;
+import com.amitu.userservice.repository.UserRepository;
+
+
+@Service
+public class UserServiceImpl implements UserService{
+
+	@Autowired
+    private UserRepository userRepository;
+
+  
+
+
+    private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
+    @Override
+    public User saveUser(User user) {
+        //generate  unique userid
+        String randomUserId = UUID.randomUUID().toString();
+        user.setUserId(randomUserId);
+        return userRepository.save(user);
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        //implement RATING SERVICE CALL: USING REST TEMPLATE
+        return userRepository.findAll();
+    }
+
+    //get single user
+    @Override
+    public User getUser(String userId) {
+        try {
+			//get user from database with the help  of user repository
+			User user = userRepository.findById(userId).get();
+			return user;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResourceAccessException("Exception Occoured");
+		}
+    }
+
+}

@@ -1,0 +1,5 @@
+package com.amitu.userservice.entity;
+
+public class Rating {
+
+}

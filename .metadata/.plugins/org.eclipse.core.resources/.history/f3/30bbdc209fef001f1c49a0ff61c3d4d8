@@ -1,0 +1,5 @@
+package com.amitu.hotelservice.service;
+
+public interface HotelService {
+
+}

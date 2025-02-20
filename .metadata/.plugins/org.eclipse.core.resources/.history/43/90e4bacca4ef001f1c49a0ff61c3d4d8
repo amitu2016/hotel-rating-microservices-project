@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      uri:  mongodb://localhost:27017/microservices
+      host: localhost
+      port: 27017
+      database: orderdb
+      repositories:
+        enabled: true
+  application:
+    name: RATING-SERVICE
+server:
+  port: 8083

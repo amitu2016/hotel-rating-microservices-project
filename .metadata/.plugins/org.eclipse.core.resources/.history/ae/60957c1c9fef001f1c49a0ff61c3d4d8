@@ -1,0 +1,5 @@
+package com.amitu.hotelservice.service;
+
+public class HotelServiceImpl implements HotelService {
+
+}

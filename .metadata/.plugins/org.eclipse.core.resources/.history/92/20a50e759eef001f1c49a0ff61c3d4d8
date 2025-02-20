@@ -1,0 +1,5 @@
+package com.amitu.hotelservice.entity;
+
+public class Hotel {
+
+}

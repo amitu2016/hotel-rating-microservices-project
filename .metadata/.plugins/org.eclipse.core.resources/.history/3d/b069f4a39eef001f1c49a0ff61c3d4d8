@@ -1,0 +1,11 @@
+package com.amitu.hotelservice.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "hotels")
+public class Hotel {
+	
+	
+}

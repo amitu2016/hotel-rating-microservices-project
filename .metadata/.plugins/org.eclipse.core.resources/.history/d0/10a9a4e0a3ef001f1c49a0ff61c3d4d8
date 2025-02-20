@@ -1,0 +1,5 @@
+package com.amitu.ratingservice.service;
+
+public interface RatingService {
+
+}
