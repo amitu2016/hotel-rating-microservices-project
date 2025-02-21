@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.ResourceAccessException;
 
 import com.amitu.ratingservice.entity.Rating;
 import com.amitu.ratingservice.repository.RatingRepository;
@@ -31,6 +32,27 @@ public class RatingServiceImpl implements RatingService {
 	@Override
 	public List<Rating> getRatingByHotelId(String hotelId) {
 		return repository.findByHotelId(hotelId);
+	}
+
+	@Override
+	public Rating update(Rating rating) {
+		Rating originalRating = repository.findById(rating.getRatingId()).get();
+		originalRating.setUserId(rating.getUserId());
+		originalRating.setRating(rating.getRating());
+		originalRating.setFeedback(rating.getFeedback());
+		originalRating.setHotelId(rating.getHotelId());
+		return repository.save(originalRating);
+	}
+
+	@Override
+	public Rating deleteById(String ratingId) {
+		try {
+			Rating originalRating = repository.findById(ratingId).get();
+			repository.delete(originalRating);
+			return originalRating;
+		} catch (Exception e) {
+			throw new ResourceAccessException(ratingId+ " Not found");
+		}
 	}
 
 }

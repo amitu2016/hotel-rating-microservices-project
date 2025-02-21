@@ -1,1 +1,6 @@
 1740042855521	Rename package 'com.amitu.userservice.controller.service'
+1740116899290	Infer generic type arguments
+1740116952870	Infer generic type arguments
+1740117817899	Extract method 'setUserRating'
+1740127320783	Copy compilation units
+1740127358314	Copy compilation unit

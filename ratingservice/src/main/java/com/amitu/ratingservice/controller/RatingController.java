@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,6 +46,18 @@ public class RatingController {
 	@GetMapping("/hotels/{hotelId}")
 	public ResponseEntity<List<Rating>> getRatingsByHotelId(@PathVariable String hotelId) {
 		return ResponseEntity.ok(ratingService.getRatingByHotelId(hotelId));
+	}
+	
+	//Update
+	@PutMapping
+	public ResponseEntity<Rating> update(@RequestBody Rating rating){
+		return ResponseEntity.status(HttpStatus.CREATED).body(ratingService.update(rating));
+	}
+	
+	//Delete By id
+	@DeleteMapping("/{ratingId}")
+	public ResponseEntity<Rating> deleteById(@PathVariable String ratingId){
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).body(ratingService.deleteById(ratingId));
 	}
 
 }

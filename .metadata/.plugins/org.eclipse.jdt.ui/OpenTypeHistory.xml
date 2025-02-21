@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+    <typeInfo handle="=hotelservice/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.amitu.hotelservice.service{HotelService.java[HotelService" modifiers="513" timestamp="1740065224067"/>
+    <typeInfo handle="=hotelservice/D:\/Eclipse-EE\/eclipse\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.4.v20240802-1551\/jre\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/21\/docs\/api\/=/=/maven.pomderived=/true=/&lt;javax.net.ssl(HostnameVerifier.class[HostnameVerifier" modifiers="1537" timestamp="1722594296000"/>
+    <typeInfo handle="=ratingservice/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.amitu.ratingservice.service{RatingService.java[RatingService" modifiers="513" timestamp="1740128041259"/>
+</typeInfoHistroy>
