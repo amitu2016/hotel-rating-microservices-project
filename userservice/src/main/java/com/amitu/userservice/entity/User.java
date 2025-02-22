@@ -32,6 +32,18 @@ public class User {
 
     @Transient
     private List<Rating> ratings=new ArrayList<>();
+    
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public User(String userId, String name, String email, String about, List<Rating> ratings) {
+		this.userId = userId;
+		this.name = name;
+		this.email = email;
+		this.about = about;
+		this.ratings = ratings;
+	}
 
 	public String getUserId() {
 		return userId;

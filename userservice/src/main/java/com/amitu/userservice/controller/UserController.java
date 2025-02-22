@@ -1,5 +1,6 @@
 package com.amitu.userservice.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -20,6 +21,10 @@ import com.amitu.userservice.entity.Rating;
 import com.amitu.userservice.entity.User;
 import com.amitu.userservice.service.UserService;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+import io.github.resilience4j.retry.annotation.Retry;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -35,14 +40,29 @@ public class UserController {
 		User user1 = userService.saveUser(user);
 		return ResponseEntity.status(HttpStatus.CREATED).body(user1);
 	}
+	
+	int retryCount = 1;
 
 	// single user get
 	@GetMapping("/{userId}")
+	//@CircuitBreaker(name = "ratingHotelBreaker", fallbackMethod = "ratingHotelFallback")
+	//@Retry(name = "ratingHotelService", fallbackMethod = "ratingHotelFallback")
+	@RateLimiter(name = "userRateLimiter", fallbackMethod = "ratingHotelFallback")
 	public ResponseEntity<User> getSingleUser(@PathVariable String userId) {
 		logger.info("Get Single User Handler: UserController");
-
+        logger.info("retryCount : {}",retryCount);
+        retryCount++;
 		User user = userService.getUser(userId);
 		return ResponseEntity.ok(user);
+	}
+	
+	
+	
+	//Fallback Method
+	public ResponseEntity<User> ratingHotelFallback(String userId, Exception ex){
+		logger.info("Fallback Method Executed");
+		User user = new User(userId, "Dummy User", "dummy@gmail.com", "THis is dummy User in Fallback", new ArrayList<Rating>());
+		return new ResponseEntity<>(user, HttpStatus.TOO_MANY_REQUESTS);
 	}
 
 	// all user get
