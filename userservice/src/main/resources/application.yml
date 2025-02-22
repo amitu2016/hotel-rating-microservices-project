@@ -1,7 +1,6 @@
 server:
   port: 8081
 
-
 spring:
   application:
     name: USER-SERVICE
@@ -19,7 +18,22 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
   config:
     import: "optional:configserver:http://localhost:8888"
-
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-88268099.okta.com/oauth2/default
+      client:
+        registration:
+          my-internal-client:
+            provider: okta
+            authorization-grant-type: client_credentials
+            scope: internal
+            client-id: 0oania0ri4mYjEwuj5d7
+            client-secret: KquR4ySIMOODokwty1410EdZMexxlBAfIASqLwB4eItmJVYE2tdozzdnudJgSGcX
+        provider:
+          okta:
+            issuer-uri: https://dev-88268099.okta.com/oauth2/default
 
 management:
   health:
@@ -58,3 +72,8 @@ resilience4j:
           limit-refresh-period: 4s
           limit-for-period: 2
           timeout-duration: 2s
+
+okta:
+  oauth2:
+    issuer: https://dev-88268099.okta.com/oauth2/default
+    audience: api://default

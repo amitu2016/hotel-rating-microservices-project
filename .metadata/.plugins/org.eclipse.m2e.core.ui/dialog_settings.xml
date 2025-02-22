@@ -2,8 +2,10 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-			<item value="D:\Current_Downloads_Folder\apigateway"/>
+			<item value="D:\Current_Downloads_Folder\api-gateway"/>
+			<item value="D:\Current_Downloads_Folder\Microservices-Tutorial-Series-main\ApiGateway\ApiGateway"/>
 			<item value="D:\hotel_rating_microservices_project\apigateway"/>
+			<item value="D:\Current_Downloads_Folder\apigateway"/>
 			<item value="D:\Current_Downloads_Folder\Microservices-Tutorial-Series-main\UserService"/>
 		</list>
 		<list key="projectNameTemplate">
